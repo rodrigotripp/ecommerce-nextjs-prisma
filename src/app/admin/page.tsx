@@ -1,6 +1,6 @@
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card"
 import db from "@/db/db"
 import { formatNumber, formatCurrency } from "@/lib/formatters"
+import { DashboardCard } from "./_components/_adminHome/DashboardCard"
 
 //Data from DB 
 async function getSalesData() {
@@ -41,7 +41,6 @@ async function getProductData() {
 }
 
 export default async function AdminDashboard() {
-
   const [salesData, userData, productData] = await Promise.all([
     getSalesData(),
     getUserData(),
@@ -63,24 +62,4 @@ export default async function AdminDashboard() {
         body={formatNumber(productData.activeCount)}
       />
   </div>
-}
-
-type DashboardCardProps = {
-  title: string
-  subtitle: string
-  body: string
-}
-
-function DashboardCard({ title, subtitle, body }: DashboardCardProps) {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{subtitle}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>{body}</p>
-      </CardContent>
-    </Card>
-  )
 }
