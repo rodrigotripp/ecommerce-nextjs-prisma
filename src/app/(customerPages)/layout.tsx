@@ -8,12 +8,13 @@ export default function AdminLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <>
-    <Nav>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/products">Products</NavLink>
-      <NavLink href="/orders">My orders</NavLink>
-    </Nav>
-    <div className="container my-6">{children}</div>
-  </>
+  return (
+    <>
+      <Nav>
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/products">Products</NavLink>
+        <NavLink href="/orders">My orders</NavLink>
+      </Nav>
+      <div className="container my-6">{children}</div>
+    </>)
 }
